@@ -1,6 +1,6 @@
 # kafka_emqx_plugin
 
-Another amazing EMQX plugin.
+A Kafka plugin compatible with EMQX 5.X, which uses WebHook to forward event data and message data to Kafka.
 
 ## Release
 
@@ -15,7 +15,21 @@ In a shell from this plugin's working directory execute `make rel` to have the p
 _build/default/emqx_plugrel/emqx_plugin_template-<vsn>.tar.gz
 ```
 ## Get Started
+1. **Modify Configuration Files**
+   - Edit the `rebar.config` file in the EMQX directory to include the `brod` dependency.
+   - Update the `emqx/apps/emqx_machine/priv/reboot_lists.eterm` file to include the `brod` dependency.
+   - Recompile EMQX after these modifications.
 
+2. **Compile the Plugin**
+   - Navigate to the parent directory of the `kafka_emqx_plugin`.
+   - Run the following command to compile:
+     ```
+     make -C kafka_emqx_plugin rel
+     ```
+
+3. **Upload and Execute**
+   - Upload the compiled file `_build/default/emqx_plugrel/kafka_emqx_plugin-1.0.0.tar.gz` to EMQX.
+   - Run the uploaded file on EMQX Dashboard.
 
 See [EMQX documentation](https://docs.emqx.com/en/enterprise/v5.0/extensions/plugins.html) for details on how to deploy custom plugins.
 # reference
